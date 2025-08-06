@@ -37,7 +37,7 @@ const md = window.markdownit({
     }
 });
 
-fetch('http://localhost:3000/retrieve-conversation')
+fetch('https://mygpt-backend-c8k4.onrender.com/retrieve-conversation')
     .then(response => {
         if (!response.ok) throw Error('Request failed');
         return response.json();
@@ -63,7 +63,7 @@ fetch('http://localhost:3000/retrieve-conversation')
     })
     .catch(error => console.error(error))
 
-fetch('http://localhost:3000/retrieve-chats')
+fetch('https://mygpt-backend-c8k4.onrender.com/retrieve-chats')
     .then(response => response.json())
     .then(data => {
         const container = document.querySelector('.chats-container');
@@ -77,7 +77,7 @@ fetch('http://localhost:3000/retrieve-chats')
     });
 
 function selectChat(collectionName) {
-    fetch('http://localhost:3000/select-chat', {
+    fetch('https://mygpt-backend-c8k4.onrender.com/select-chat', {
         method: 'POST',
         headers: { 'Content-Type': 'text/plain' },
         body: collectionName
@@ -95,7 +95,7 @@ function selectChat(collectionName) {
 function deleteChat(event, collectionName) {
     event.stopPropagation();
     if (confirm('Are you sure you want to delete this chat?')) {
-        fetch('http://localhost:3000/delete-chat', {
+        fetch('https://mygpt-backend-c8k4.onrender.com/delete-chat', {
             method: 'POST',
             headers: { 'Content-Type': 'text/plain' },
             body: collectionName
@@ -130,7 +130,7 @@ function toggleSidebar() {
 
 async function newChat() {
     try {
-        await fetch('http://localhost:3000/new-collection');
+        await fetch('https://mygpt-backend-c8k4.onrender.com/new-collection');
         location.reload();
     }
     catch (error) {
@@ -163,7 +163,7 @@ function input() {
     preResponse.style.backgroundColor = '#212121'
     Super.appendChild(preResponse);
 
-    fetch('http://localhost:3000/chat', {
+    fetch('https://mygpt-backend-c8k4.onrender.com/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'text/plain' },
         body: input.value,
@@ -201,3 +201,4 @@ textarea.addEventListener("keydown", function (e) {
         input()
     }
 });
+
