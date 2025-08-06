@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My GPT</title>
+  <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div id="super"></div>
+  <div class="container">
+    <textarea id="input" placeholder="Ask anything..." rows="1"></textarea>
+    <input type="button" value="Go" id="button" onclick="input()">
+  </div>
+  <div class="base-plate">MYGPT can make mistakes</div>
+  <div class="chat-menu">
+    <div class="chat-nav"><img class="cancel-icon" src="assets/svg/cancel.svg" alt="" onclick="toggleSidebar()"></div>
+    <div class="chats-container">
+      <div class="new-chat" onclick="newChat()"><img src="assets/svg/new-chat.svg" alt="">New chat</div>
+      <div class="temp-chat" onclick="window.location.href='temporary-chat.html'"><img src="assets/svg/temp-chat.svg"
+          alt="">Temp chat</div>
+      <div class="chat-gray">Chats</div>
+    </div>
+  </div>
+  <div class="ham-container">
+    <img class="hamburger" onclick="toggleSidebar()" src="assets/svg/hamburger.svg" alt="">
+  </div>
+  <div class="greeting">How can i help you?</div>
+  <div id="reload"></div>
+  <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-cpp.min.js"></script>
+  <script src="js/mygpt.js"></script>
+</body>
+
+</html>

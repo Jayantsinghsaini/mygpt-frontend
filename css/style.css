@@ -1,0 +1,361 @@
+ :root {
+     --universal-padding: 350px;
+ }
+
+ * {
+     margin: 0;
+     padding: 0;
+     font-family: Arial, Helvetica, sans-serif;
+     letter-spacing: 0.3px;
+     word-spacing: 1.5px;
+     line-height: 1.6;
+     box-sizing: border-box;
+     -webkit-tap-highlight-color: transparent;
+ }
+
+ body {
+     background-color: #212121;
+     box-sizing: border-box;
+ }
+
+ body::-webkit-scrollbar {
+     width: 6px;
+ }
+
+ body::-webkit-scrollbar-track {
+     background: transparent;
+ }
+
+ body::-webkit-scrollbar-thumb {
+     background-color: rgba(255, 255, 255, 0.2);
+     border-radius: 4px;
+ }
+
+ body::-webkit-scrollbar-thumb:hover {
+     background-color: rgba(255, 255, 255, 0.4);
+ }
+
+ body {
+     scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+ }
+
+ .container {
+     display: flex;
+     flex-direction: column;
+     width: calc(100% - 2 * var(--universal-padding));
+     border-radius: 20px;
+     background-color: #333333;
+     padding: 10px;
+     position: fixed;
+     bottom: 30px;
+     left: 50%;
+     transform: translateX(-50%);
+     z-index: 3;
+     box-shadow: 0 0 5px 0px #272626;
+     transition: 0.5s;
+ }
+
+ .base-plate {
+     width: calc(100% - 2 * var(--universal-padding));
+     height: 100px;
+     background-color: #212121;
+     position: fixed;
+     bottom: 0;
+     color: white;
+     display: flex;
+     justify-content: center;
+     align-items: flex-end;
+     font-size: 0.8rem;
+     left: 50%;
+     transform: translateX(-50%);
+     transition: 0.5s;
+ }
+
+ .greeting {
+     color: white;
+     position: fixed;
+     width: max-content;
+     font-size: 50px;
+     top: 35%;
+     left: 50%;
+     transform: translateX(-50%);
+     z-index: 1;
+     transition: 0.5s;
+ }
+
+ .res-container {
+     left: calc(50% + 125px);
+ }
+
+ #input {
+     width: 100%;
+     max-height: 150px;
+     font-size: 1rem;
+     resize: none;
+     outline: none;
+     overflow-y: scroll;
+     scrollbar-width: none;
+     background-color: #333333;
+     padding: 5px;
+     color: white;
+     border: none;
+ }
+
+ #input:focus {
+     outline: none;
+ }
+
+ #button {
+     height: 40px;
+     width: 40px;
+     border-radius: 20px;
+     border: none;
+     font-weight: bolder;
+     background-color: white;
+     color: #333333;
+     cursor: pointer;
+     align-self: flex-end;
+ }
+
+ #button:hover {
+     background-color: lightgray;
+ }
+
+ #super {
+     display: flex;
+     flex-direction: column;
+     padding: 0 var(--universal-padding);
+     transition: 0.5s;
+ }
+
+ .res-super {
+     padding: 0 calc(var(--universal-padding) - 125px) 0 calc(var(--universal-padding) + 125px) !important;
+ }
+
+ #super> :last-child {
+     margin-bottom: 70dvh;
+ }
+
+ #super> :first-child {
+     margin-top: 40px;
+ }
+
+ #request {
+     color: white;
+     max-width: 50%;
+     align-self: flex-end;
+     margin: 10px 0;
+     padding: 15px;
+     border-radius: 20px;
+     background-color: #333333;
+     word-wrap: break-word;
+     white-space: pre-wrap;
+ }
+
+ #response {
+     color: white;
+     max-width: 100%;
+     align-self: flex-start;
+     margin: 10px 0;
+     padding: 15px 40px;
+     border-radius: 20px;
+     background-color: #333333;
+     overflow-x: auto;
+ }
+
+ pre {
+     background: #1e1e1e;
+     border-radius: 20px;
+     overflow-x: auto;
+     padding: 10px;
+ }
+
+ code {
+     font-family: Consolas, monospace;
+     font-size: 0.9rem;
+ }
+
+ #circle {
+     height: 10px;
+     width: 10px;
+     border-radius: 50%;
+     background-color: white;
+     animation: animation 1s ease-in-out infinite alternate;
+ }
+
+ @keyframes animation {
+     0% {
+         transform: scale(1);
+     }
+
+     100% {
+         transform: scale(1.5);
+     }
+ }
+
+ .chat-menu {
+     position: fixed;
+     top: 0;
+     left: -260px;
+     color: white;
+     z-index: 5;
+     transition: left 0.3s ease;
+ }
+
+ .chat-menu.open {
+     left: 0;
+ }
+
+ .chat-nav {
+     background-color: #181818;
+     height: 50px;
+     display: flex;
+     justify-content: flex-end;
+ }
+
+ .cancel-icon {
+     margin-right: 15px;
+     cursor: pointer;
+ }
+
+ .chats-container {
+     height: calc(100dvh - 50px);
+     width: 250px;
+     padding: 5px;
+     background-color: #181818;
+     overflow-y: scroll;
+ }
+
+ .chat {
+     border-radius: 10px;
+     padding: 5px 10px;
+     cursor: pointer;
+     user-select: none;
+     display: flex;
+     justify-content: space-around;
+ }
+
+ .chat:hover,
+ .new-chat:hover,
+ .temp-chat:hover {
+     background-color: #333333;
+ }
+
+ .delete-icon {
+     display: none;
+ }
+
+ .chat:hover .delete-icon {
+     display: inline;
+ }
+
+ .chat-text {
+     flex: 1;
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+ }
+
+ .chat-gray {
+     user-select: none;
+     color: darkgray;
+     padding: 5px 10px;
+ }
+
+ .temp-chat,
+ .new-chat {
+     border-radius: 10px;
+     padding: 5px 10px;
+     cursor: pointer;
+     user-select: none;
+     display: flex;
+     align-items: center;
+ }
+
+ .ham-container {
+     background-color: #212121;
+     position: fixed;
+     top: 0px;
+     left: 0px;
+     width: 100dvw;
+     height: 40px;
+ }
+
+ .hamburger {
+     margin: 10px 0 0 0;
+     color: white;
+     cursor: pointer;
+     z-index: 4;
+     padding: 0px 15px;
+ }
+
+ .exit-container {
+     background-color: #212121;
+     position: fixed;
+     top: 0px;
+     left: 0px;
+     width: 100dvw;
+     height: 40px;
+ }
+
+ .exit-icon {
+     margin: 10px 0 0 0;
+     color: white;
+     cursor: pointer;
+     z-index: 4;
+     padding: 0px 15px;
+     transform: rotateZ(180deg);
+ }
+
+ #reload {
+     background-color: #212121;
+     height: 100vh;
+     width: 100vw;
+     position: fixed;
+     top: 0;
+     left: 0;
+     transition: opacity 1s ease, transform 1s ease;
+     opacity: 1;
+     z-index: 6;
+ }
+
+ #reload.hide {
+     opacity: 0;
+     transform: scale(1.05);
+     pointer-events: none;
+ }
+
+ @media screen and (max-width:768px) {
+     :root {
+         --universal-padding: 10px;
+     }
+     *{
+        word-spacing: normal;
+     }
+     pre {
+         font-size: 10px !important;
+     }
+
+     .delete-icon {
+         display: inline;
+     }
+
+     .greeting {
+         font-size: 25px;
+     }
+ }
+
+ @media screen and (min-width:768px) and (max-width:1280px) {
+     :root {
+         --universal-padding: 100px;
+     }
+
+     .delete-icon {
+         display: inline;
+     }
+
+     .greeting {
+         font-size: 35px;
+     }
+ }
+ 
