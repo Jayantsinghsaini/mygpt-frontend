@@ -61,7 +61,7 @@ function input() {
     preResponse.style.backgroundColor = '#212121'
     Super.appendChild(preResponse); 
      
-    fetch('http://localhost:3000/temp-chat', {
+    fetch('https://mygpt-backend-c8k4.onrender.com/temp-chat', {
         method: 'POST',
         headers: { 'Content-Type': 'text/plain' },
         body: input.value,
@@ -99,3 +99,4 @@ textarea.addEventListener("keydown", function (e) {
         input()
     }
 });
+
